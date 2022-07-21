@@ -17,14 +17,15 @@ let step = Number(formEl.step.value);
 
 for(let i = 1; i <= amount; i++) {
   createPromise(i, delay)
-.then(({i, delay}) => {
-  Notiflix.Notify.success(`✅ Fulfilled promise ${i} in ${delay}ms`)
+.then(({position, delay}) => {
+  Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`)
+
 })
-.catch(({il, delay}) => {
-  Notiflix.Notify.failure(`❌ Rejected promise ${i} in ${delay}ms`)
+.catch(({position, delay}) => {
+  Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`)
 });
-}
 delay += step;
+}
 }
 
 function createPromise(position, delay) {
